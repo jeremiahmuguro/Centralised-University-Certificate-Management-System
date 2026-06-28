@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CUCMS - Public Verification</title>
+    <link rel="stylesheet" href="reg-styles.css">
+</head>
+<body style="display:flex; justify-content:center; align-items:center; height:100vh; background:#f4f6f9;">
+    <div class="form-container" style="width:450px; text-align:center;">
+        <h2>Verify Graduate Certificate</h2>
+        <p>Enter the Certificate Serial Number below to check authenticity.</p>
+
+        <form action="verification_result.php" method="POST">
+    <input type="text" name="cert_no" placeholder="e.g. CUEA-CS-1062093-2026" required style="width:90%; padding:10px; margin-bottom:20px;">
+    
+    <!-- New field for visitor -->
+    <input type="text" name="visitor_name" placeholder="Your Name / Organization" required style="width:90%; padding:10px; margin-bottom:20px;">
+    
+    <button type="submit" style="width:100%;">Verify Authenticity</button>
+    <a href="index.html" class="button-link">Go back to Home page</a>
+</form>
+
+    </div>
+</body>
+</html>

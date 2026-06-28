@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CUCMS - Upload Transcript</title>
+    <link rel="stylesheet" href="reg-styles.css">
+    <script type="text/javascript">
+        function validateTranscript() {
+            // 1. Validate Registration Number
+            var reg = document.getElementById("reg_num").value;
+            if (reg.length == 0) {
+                alert("Please enter the Student Registration Number");
+                document.getElementById("reg_num").focus();
+                return false;
+            }
+
+            // 2. Validate File Selection
+            var fileInput = document.getElementById("transcript_file");
+            var filePath = fileInput.value;
+            
+            if (filePath == "") {
+                alert("You must select a transcript file to upload");
+                document.getElementById("transcript_file").focus();
+                return false;
+            }
+
+            // 3. Validate File Extension (Must be PDF)
+            var allowedExtensions = /(\.pdf)$/i;
+            if (!allowedExtensions.exec(filePath)) {
+                alert("Invalid file type. Only PDF transcripts are accepted.");
+                fileInput.value = ''; // Clear the input
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body style="padding: 20px; height: auto;">
+    <div class="form-container" style="width: 400px;">
+        <h2>Upload Transcript</h2>
+        <form action="save_transcript.php" method="POST" enctype="multipart/form-data" onsubmit="return validateTranscript()">
+            
+            <label for="reg_num">Student Registration Number:</label>
+            <input type="text" name="reg_num" id="reg_num" placeholder="e.g. 1062093">
+
+            <label for="transcript_file">Select Transcript (PDF only):</label>
+            <input type="file" name="transcript_file" id="transcript_file" accept=".pdf">
+
+            <button type="submit">Upload & Link to Student</button>
+        </form>
+    </div>
+</body>
+</html>

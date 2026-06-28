@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>CUCMS - Public Certificate Printing</title>
+    <link rel="stylesheet" href="reg-styles.css">
+</head>
+<body style="display:flex; justify-content:center; align-items:center; height:100vh; background:#f4f6f9;">
+    <div class="form-container" style="width:450px; text-align:center;">
+        <h2>Print Graduate Certificate</h2>
+        <p>Enter your Registration Number and Graduation Year to print your certificate.</p>
+        <form action="print_result.php" method="POST">
+            <input type="text" name="reg_num" placeholder="e.g. 1062093" required style="width:90%; padding:10px; margin-bottom:20px;">
+            <input type="number" name="grad_year" placeholder="e.g. 2026" required style="width:90%; padding:10px; margin-bottom:20px;">
+            <button type="submit" style="width:100%;">Print Certificate</button>
+                  <a href="index.html" class="button-link">Go back to Home page</a>
+        </form>
+    </div>
+</body>
+</html>

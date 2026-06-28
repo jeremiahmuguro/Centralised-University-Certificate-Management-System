@@ -1,0 +1,144 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Course</title>
+    <link rel="stylesheet" href="reg-styles.css">
+</head>
+<body style="padding: 20px;">
+    <div class="form-container" style="width: 400px;">
+        <h2>Add New Course</h2>
+        <form action="save_course.php" method="POST">
+            <label>Course Name</label>
+            <input type="text" name="c_name" required placeholder="e.g. Computer Science">
+
+            <label>Course Code</label>
+            <input type="text" name="c_code" required placeholder="e.g. CS101">
+
+            <label>Level of Program</label>
+            <select name="level">
+                <option value="Certificate">Certificate</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Bachelor">Bachelor</option>
+                <option value="Master">Master</option>
+                <option value="PhD">PhD</option>
+            </select>
+
+            <label>University ID</label>
+            <input type="number" name="u_id" required placeholder="Your University ID">
+
+            <label>Duration (Years)</label>
+            <input type="number" name="duration" placeholder="e.g. 4">
+
+            <button type="submit">Add Course</button>
+        </form>
+    </div>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Course</title>
+    <link rel="stylesheet" href="reg-styles.css">
+    <script>
+        // Master validation function
+        function validateForm() {
+            var rtned = true;
+            if (rtned) rtned = validateCourseName();
+            if (rtned) rtned = validateCourseCode();
+            if (rtned) rtned = validateLevel();
+            if (rtned) rtned = validateUniversityId();
+            if (rtned) rtned = validateDuration();
+            return rtned;
+        }
+
+        // Validate Course Name
+        function validateCourseName() {
+            var cname = document.getElementsByName("c_name")[0].value;
+            if (cname.length === 0) {
+                alert("You must enter a valid Course Name");
+                document.getElementsByName("c_name")[0].focus();
+                return false;
+            }
+            return true;
+        }
+
+        // Validate Course Code
+        function validateCourseCode() {
+            var ccode = document.getElementsByName("c_code")[0].value;
+            if (ccode.length === 0) {
+                alert("You must enter a valid Course Code");
+                document.getElementsByName("c_code")[0].focus();
+                return false;
+            }
+            return true;
+        }
+
+        // Validate Level of Program
+        function validateLevel() {
+            var level = document.getElementsByName("level")[0].selectedIndex;
+            if (level === -1) {
+                alert("You must select a Level of Program");
+                document.getElementsByName("level")[0].focus();
+                return false;
+            }
+            return true;
+        }
+
+        // Validate University ID
+        function validateUniversityId() {
+            var uid = document.getElementsByName("u_id")[0].value;
+            if (uid.length === 0 || isNaN(uid)) {
+                alert("You must enter a valid University ID (numbers only)");
+                document.getElementsByName("u_id")[0].focus();
+                return false;
+            }
+            return true;
+        }
+
+        // Validate Duration
+        function validateDuration() {
+            var duration = document.getElementsByName("duration")[0].value;
+            if (duration.length === 0 || isNaN(duration) || duration <= 0) {
+                alert("You must enter a valid Duration in years");
+                document.getElementsByName("duration")[0].focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body style="padding: 20px;">
+    <div class="form-container" style="width: 400px;">
+        <h2>Add New Course</h2>
+        <form action="save_course.php" method="POST" onsubmit="return validateForm();">
+            <label>Course Name</label>
+            <input type="text" name="c_name" placeholder="e.g. Computer Science">
+
+            <label>Course Code</label>
+            <input type="text" name="c_code" placeholder="e.g. CS101">
+
+            <label>Level of Program</label>
+            <select name="level">
+                <option value="">--Select Level--</option>
+                <option value="Certificate">Certificate</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Bachelor">Bachelor</option>
+                <option value="Master">Master</option>
+                <option value="PhD">PhD</option>
+            </select>
+
+            <label>University ID</label>
+            <input type="number" name="u_id" placeholder="Your University ID">
+
+            <label>Duration (Years)</label>
+            <input type="number" name="duration" placeholder="e.g. 4">
+
+            <button type="submit">Add Course</button>
+        </form>
+    </div>
+</body>
+</html>

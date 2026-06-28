@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Certificate Application</title>
+    <link rel="stylesheet" href="reg-styles.css">
+    <script type="text/javascript">
+        function validateApplication() {
+            if (document.getElementById("reg_num").value == "") {
+                alert("Please enter the Student Registration Number");
+                document.getElementById("reg_num").focus();
+                return false;
+            }
+            if (document.getElementById("grad_date").value == "") {
+                alert("Please select the Graduation Date");
+                document.getElementById("grad_date").focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body style="padding: 20px;">
+    <div class="form-container" style="width: 400px;">
+        <h2>Certificate Application</h2>
+        <form action="save_application.php" method="POST" onsubmit="return validateApplication()">
+            
+            <label>Student Registration Number</label>
+            <input type="text" name="reg_num" id="reg_num" placeholder="e.g. 1062093">
+
+            <label>Date of Graduation</label>
+            <input type="date" name="grad_date" id="grad_date">
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+</body>
+</html>

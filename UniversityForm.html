@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register University</title>
+    <link rel="stylesheet" href="reg-styles.css">
+    <script type="text/javascript">
+        function validateUniversity() {
+            var name = document.getElementById("u_name").value;
+            var code = document.getElementById("u_code").value;
+
+            if (name == "") {
+                alert("University Name is required");
+                document.getElementById("u_name").focus();
+                return false;
+            }
+            if (code == "") {
+                alert("University Code is required (e.g., CUEA01)");
+                document.getElementById("u_code").focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body style="padding: 20px;">
+    <div class="form-container" style="width: 400px;">
+        <h2>Register New University</h2>
+        <form action="save_university.php" method="POST" onsubmit="return validateUniversity()">
+            <label>University Name</label>
+            <input type="text" name="u_name" id="u_name" placeholder="e.g. Catholic University of Eastern Africa">
+
+            <label>University Code</label>
+            <input type="text" name="u_code" id="u_code" placeholder="e.g. CUEA">
+
+            <button type="submit">Register Institution</button>
+        </form>
+    </div>
+</body>
+</html>

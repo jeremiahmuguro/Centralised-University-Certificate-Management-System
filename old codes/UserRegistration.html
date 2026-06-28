@@ -1,0 +1,32 @@
+<!--Old Registration Form-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CUCMS - Register</title>
+    <link rel="stylesheet" href="reg-styles.css"> <!-- Link to CSS -->
+</head>
+<body>
+    <div class="form-container">
+        <h2>User Registration</h2>
+        <form action="registration.php" method="POST"  >
+            <!-- Input fields -->
+            <input type="text" name="real_name" placeholder="Full Name" >
+            <input type="text" name="phone" placeholder="Phone (e.g. +254...)" >
+            <input type="text" name="email" placeholder="Email Address" >
+            <input type="text" name="username" placeholder="Username" >
+            <input type="text" name="password" placeholder="Password" >
+            
+            <!-- Dropdown -->
+            <label for="role">User Role:</label>
+            <select name="role" id="role">
+                <option value="Admin">Admin</option>
+                <option value="UniversityStaff">University Staff</option>
+                <option value="Regulator">Regulator</option>
+            </select>
+            
+            <!-- Button -->
+            <button type="submit">Register User</button>
+        </form>
+    </div>
+</body>
+</html>
